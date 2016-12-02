@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Elm Chat</title>
+  <link rel="stylesheet" href="app.css">
+</head>
+
+<body>
+  <div></div>
+  <script src="bundle.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/3.2.1/firebase.js"></script>
+  <script src="appfb.js"></script>
+  <script>
+    var app = Elm.Main.fullscreen();
+    app.ports.addMessage.subscribe(function(message){
+      console.log("ADDING MESSAGE2: ", message);
+      addMessage(message)
+        .then(function(response){
+          console.log("Saved!");
+          app.ports.messageSaved.send(response.key);
+        }, function(err){
+          console.log("error:", err);
+        });
+    });
+    var listener = messageListener();
+    listener.on("child_added", function(data){
+      var message = Object.assign({id: data.key}, data.val());
+      console.log("child added: ", message)
+      app.ports.newMessage.send(message);
+    });
+  </script>
+</body>
+
+</html>
