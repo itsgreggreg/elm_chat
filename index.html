@@ -10,6 +10,76 @@
 
 <body>
   <div></div>
+  <style>
+  *{box-sizing: border-box;}
+  body{
+    font-family: sans-serif;
+    margin: 0px;
+    display: flex;
+    flex-direction: column;
+  }
+  h1{
+    background-color: #999;
+    padding: .5rem;
+    margin: 0;
+  }
+  form.message-form{
+    background-color: #ddd;
+    padding: .5rem;
+    display: flex;
+  }
+  form.message-form span{
+    margin-right: 1rem;
+  }
+  form.message-form input{
+    flex-grow: 2;
+    max-width: 500px;
+  }
+  form.message-form button{
+    border-radius: .25rem;
+    color: #333;
+    font-weight: bold;
+    margin-left: 1rem;
+  }
+  .message{
+    padding: .3rem;
+    padding-left: 1rem;
+  }
+  .message.system{
+    color: #999;
+  }
+  .message:nth-child(even){
+    background-color: #eee;
+  }
+  .modal-container{
+    position: absolute;
+    top: 0; bottom: 0; right: 0; left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0,0,0,.4);
+  }
+  .modal-dialog{
+    background-color: white;
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.5);
+  }
+  .modal-header button{ display: none;}
+  .modal-header h3 {
+  }
+  .modal-dialog input{
+    width: 100%;
+    padding: .5rem;
+    font-size: 1rem;
+  }
+  .modal-dialog button{
+    font-size: 1rem;
+    padding: .5rem;
+    border-radius: .25rem;
+    margin-top: .4rem;
+  }
+  </style>
   <script src="bundle.js"></script>
   <script src="https://www.gstatic.com/firebasejs/3.2.1/firebase.js"></script>
   <script src="appfb.js"></script>
