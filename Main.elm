@@ -150,7 +150,7 @@ dialogConfig model =
 view : Model -> Html Msg
 view model =
     div []
-        [ h1 [] [ text "Elm Chat!" ]
+        [ h1 [] [ text "Elm Chat" ]
         , viewMessageForm model
         , viewMessages model.messages
         , viewDialog model
